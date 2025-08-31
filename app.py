@@ -108,7 +108,7 @@ def registrar():
 
 @app.route('/alerta-ar/<lat>/<lon>')
 def get_alerta_ar(lat, lon):
-    API_KEY = os.getenv('API_KEY_OWM')"
+    API_KEY = os.getenv('API_KEY_OWM')
     url = f"http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API_KEY}"
     
     try:
@@ -124,7 +124,7 @@ def get_alerta_ar(lat, lon):
         db.session.commit()
         
         # Lógica de Alerta Proativo
-        if aqi >= 4: # Limite de risco para enviar alerta
+        if aqi >= 1: # Limite de risco para enviar alerta
             inscritos_na_area = Inscrito.query.filter_by(latitude=lat, longitude=lon).all()
             for inscrito in inscritos_na_area:
                 if not inscrito.ultimo_alerta or (datetime.utcnow() - inscrito.ultimo_alerta > timedelta(hours=6)):
