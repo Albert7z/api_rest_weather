@@ -82,3 +82,13 @@ GET /tendencia/<latitude>/<longitude>
 Analisa os registros das últimas 3 horas e retorna a tendência da qualidade do ar.
 
 Exemplo: http://127.0.0.1:5000/tendencia/-27.5969/-48.5495
+
+
+🔮 Próximos Passos e Melhorias Futuras
+Desenvolvimento de um Frontend: Criar uma interface web (React, Vue, ou HTML/JS simples) para fornecer uma maneira visual e amigável para o usuário interagir com a API, ver dados em gráficos e se registrar para alertas através de um formulário.
+
+Busca por Nome da Cidade: Integrar com a API de Geocoding da OpenWeatherMap para permitir que os usuários consultem a qualidade do ar pelo nome da cidade, em vez de coordenadas.
+
+Tarefas Agendadas (Scheduler): Implementar um worker em segundo plano (com Celery ou APScheduler) que verifique periodicamente a qualidade do ar para todos os usuários inscritos, tornando o sistema de alertas 100% autônomo.
+
+Cache de Dados: Adicionar um sistema de cache (como Redis) para reduzir chamadas repetidas à API externa e aumentar a velocidade de resposta para locais populares.
